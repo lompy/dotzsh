@@ -57,7 +57,7 @@ export PATH="$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/
 # export MANPATH="/usr/local/man:$MANPATH"
 
  # Preferred editor for local and remote sessions
- export EDITOR='vim'
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
