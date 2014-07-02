@@ -68,6 +68,7 @@ export EDITOR='vim'
 alias z=zeus
 alias v=vim
 alias h='cd /home/lompy/code/hotels'
+alias s='cd /home/lompy/code/search-ui'
 alias t=task
 alias r=rails
 alias p=passenger
