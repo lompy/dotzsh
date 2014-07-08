@@ -45,7 +45,7 @@ ZSH_THEME="alanpeabody"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails ruby rvm)
+plugins=(git rails ruby rvm rbenv)
 
 source $ZSH/oh-my-zsh.sh
 vim() STTY=-ixon command vim "$@"
@@ -69,6 +69,7 @@ alias z=zeus
 alias v=vim
 alias h='cd /home/lompy/code/hotels'
 alias s='cd /home/lompy/code/search-ui'
+alias f='cd /home/lompy/code/fresh_store'
 alias t=task
 alias r=rails
 alias p=passenger
