@@ -65,7 +65,6 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-alias z=zeus
 alias v=vim
 alias h='cd /home/lompy/code/hotels'
 alias s='cd /home/lompy/code/search-ui'
@@ -74,5 +73,5 @@ alias t=task
 alias r=rails
 alias p=passenger
 alias gh=vcsh
-alias light='~/.scripts/gnome-terminal-colors-solarized/solarize light'
-alias dark='~/.scripts/gnome-terminal-colors-solarized/solarize dark'
+alias light='~/.scripts/gnome-terminal-colors-solarized/solarize light && echo "set background=light" > ~/.vim/light_background.vim'
+alias dark='~/.scripts/gnome-terminal-colors-solarized/solarize dark && rm -f ~/.vim/light_background.vim'
