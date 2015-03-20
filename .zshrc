@@ -45,7 +45,7 @@ ZSH_THEME="alanpeabody"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails ruby rvm rbenv npm)
+plugins=(git rails ruby rvm rbenv nyan)
 
 source $ZSH/oh-my-zsh.sh
 vim() STTY=-ixon command vim "$@"
@@ -64,6 +64,8 @@ export EDITOR='vim'
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+# Colors
 
 alias v=vim
 alias h='cd /home/lompy/code/hotels'
@@ -72,7 +74,8 @@ alias f='cd /home/lompy/code/fresh_store'
 alias t=task
 alias n='cd /home/lompy/Dropbox/notes; vim .'
 alias r=rails
-alias p=passenger
 alias gh=vcsh
+alias gaa='git add --all'
+alias ghi="git hi"
 alias light='~/.scripts/gnome-terminal-colors-solarized/solarize light && echo "set background=light" > ~/.vim/light_background.vim'
 alias dark='~/.scripts/gnome-terminal-colors-solarized/solarize dark && rm -f ~/.vim/light_background.vim'
