@@ -1,81 +1,49 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="alanpeabody"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment following line if you want to  shown in the command execution time stamp 
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-# HIST_STAMPS="mm/dd/yyyy"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails ruby rvm rbenv nyan)
+plugins=(git bundler rails nyan debian)
 
 source $ZSH/oh-my-zsh.sh
+
+# Allow Ctrl-S for save in VIM
 vim() STTY=-ixon command vim "$@"
-
-# User configuration
-
-export PATH="$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-# export MANPATH="/usr/local/man:$MANPATH"
-
- # Preferred editor for local and remote sessions
+# Preferred editor for local and remote sessions
 export EDITOR='vim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Paths
+export PATH="$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-#
-# Colors
-
+# Fast commands
 alias v=vim
-alias h='cd /home/lompy/code/hotels'
-alias s='cd /home/lompy/code/search-ui'
-alias f='cd /home/lompy/code/fresh_store'
-alias t=task
-alias n='cd /home/lompy/Dropbox/notes; vim .'
-alias r=rails
 alias gh=vcsh
-alias gaa='git add --all'
-alias ghi="git hi"
-alias light='~/.scripts/gnome-terminal-colors-solarized/solarize light && echo "set background=light" > ~/.vim/light_background.vim'
-alias dark='~/.scripts/gnome-terminal-colors-solarized/solarize dark && rm -f ~/.vim/light_background.vim'
+alias gaa="git add --all"
+alias ghi="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+alias gtype="git cat-file -t"
+alias gdump="git cat-file -p"
+alias gst="git status -s"
+
+# Theme based on alnpeabody
+local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
+local pwd='%{$fg[blue]%}%~%{$reset_color%}'
+local return_code='%(?..%{$fg[red]%}%?%{$reset_color%}
+)'
+local git_branch='%{$fg[red]%}$(work_in_progress)%{$reset_color%}$(git_prompt_status)%{$reset_color%}$(git_prompt_info)%{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
+
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} +"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} *"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} x"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ->"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} U"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ?"
+
+PROMPT="${return_code}${user}${pwd}$ "
+RPROMPT=" ${git_branch}"
