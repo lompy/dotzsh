@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler rails nyan ubuntu)
+plugins=(git bundler rails nyan)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,6 +25,8 @@ alias ghi="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias gtype="git cat-file -t"
 alias gdump="git cat-file -p"
 alias gst="git status -s"
+alias fuck='$(thefuck $(fc -ln -1))'
+alias lt='/opt/LightTable/LightTable'
 
 # Theme based on alnpeabody
 local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
@@ -38,12 +40,12 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} +"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} *"
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} x"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ->"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} U"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ?"
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}+"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%}*"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}x"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%}->"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%}U"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}?"
 
 PROMPT="${return_code}${user}${pwd}$ "
 RPROMPT="${git_branch}"
