@@ -48,4 +48,11 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}?"
 
 PROMPT="${return_code}${user}${pwd}$ "
 RPROMPT="${git_branch}"
+
+[ $TMUX ] && source ~/.tmux-git.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS='
+  --bind ctrl-f:page-down,ctrl-b:page-up
+  --color=info:4,bg+:7,fg+:0,hl:4,hl+:4,spinner:4
+'
