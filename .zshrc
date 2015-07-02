@@ -53,7 +53,7 @@ PROMPT="${return_code}${user}${pwd}$ "
 RPROMPT="${git_branch}"
 
 export FZF_DEFAULT_OPTS='
-  --bind ctrl-f:page-down,ctrl-b:page-up
+  --bind ctrl-f:page-down,ctrl-b:page-up,ctrl-t:toggle-all
   --extended
   --color=info:4,bg+:7,fg+:0,hl:4,hl+:4,spinner:4
 '
