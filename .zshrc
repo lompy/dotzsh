@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler rails nyan rbenv rvn)
+plugins=(git gitfast bundler rails nyan rbenv rvn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -19,6 +19,10 @@ export HISTCONTROL=erasedups
 # Paths
 export PATH="$PATH:$HOME/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+export TMUXIFIER_TMUX_OPTS="-2"
+eval "$(tmuxifier init -)"
 
 # Fast commands
 alias v=vim
@@ -28,7 +32,7 @@ alias ghi="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias gtype="git cat-file -t"
 alias gdump="git cat-file -p"
 alias gst="git status -s"
-alias tmux='TERM=xterm-256color tmux'
+alias gdc="git diff --cached"
 
 # Theme based on alnpeabody
 local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
